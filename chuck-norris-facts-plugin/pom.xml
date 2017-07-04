@@ -8,7 +8,7 @@
 		<relativePath>..</relativePath>
 		<groupId>co.atoth.eclipse</groupId>
 		<artifactId>chuck-norris-facts-parent</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.1</version>
 	</parent>
 	<artifactId>chuck.norris.facts.plugin</artifactId>
 	<packaging>eclipse-plugin</packaging>

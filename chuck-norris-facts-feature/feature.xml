@@ -2,7 +2,7 @@
 <feature
       id="chuck.norris.facts.feature"
       label="Chuck Norris Facts"
-      version="1.0.0">
+      version="1.0.1">
 
    <description>
       Read Chuck Norris facts in your IDE 

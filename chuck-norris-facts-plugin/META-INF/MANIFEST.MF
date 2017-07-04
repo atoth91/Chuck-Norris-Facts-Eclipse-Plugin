@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Chuck Norris Facts Eclipse Plugin
+Bundle-SymbolicName: chuck.norris.facts.plugin;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: co.atoth.eclipse.plugin.chucknorris.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ui,
+ org.eclipse.json;bundle-version="1.0.1"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: javax.inject;version="1.0.0"
+Bundle-ActivationPolicy: lazy
+

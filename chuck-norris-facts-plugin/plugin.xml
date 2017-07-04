@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="co.atoth.eclipse.plugin.chucknorris.preferences.PreferencePage"
+            id="co.atoth.eclipse.plugin.chucknorris.preferences.PreferencePage"
+            name="Chuck Norris Facts">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="co.atoth.eclipse.plugin.chucknorris.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="chuck.norris.facts.plugin"
+            name="Chuck Norris Facts">
+      </category>
+      <view
+            allowMultiple="false"
+            category="chuck.norris.facts.plugin"
+            class="co.atoth.eclipse.plugin.chucknorris.ui.FactsView"
+            icon="icons/chuck_16x16.png"
+            id="co.atoth.eclipse.plugin.chucknorris.FactsView"
+            name="Chuck Norris Facts">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               id="co.atoth.eclipse.plugin.chucknorris.FactsView"
+               ratio="0.5"
+               relationship="right"
+               relative="org.eclipse.ui.views.ProblemView">
+         </view>
+      </perspectiveExtension>
+   </extension>
+
+</plugin>

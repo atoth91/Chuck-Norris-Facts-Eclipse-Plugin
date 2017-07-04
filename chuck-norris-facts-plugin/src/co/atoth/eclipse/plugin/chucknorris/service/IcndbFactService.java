@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.eclipse.json.provisonnal.com.eclipsesource.json.JsonArray;
-import org.eclipse.json.provisonnal.com.eclipsesource.json.JsonObject;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import co.atoth.eclipse.plugin.chucknorris.preferences.PluginSettings;
 
@@ -50,23 +50,19 @@ public class IcndbFactService implements FactService {
             return result;
         }
 
-        JsonObject jsonObject = JsonObject.readFrom(response);
-        
-        //Parse response JSON
-        if (jsonObject.get("type") != null && 
-        		jsonObject.get("type").isString() && 
-        		jsonObject.get("type").asString().equals("success") && 
-        		jsonObject.get("value") != null) {
+      //Parse response JSON
+        JSONObject jsonObject = new JSONObject(response);
+        if (jsonObject.has("type") && jsonObject.getString("type").equals("success") && jsonObject.has("value")) {
 
             if (settings.getFactLoadCount() > 1) {
-                JsonArray factArray = jsonObject.get("value").asArray();
-                for (int i = 0; i < factArray.size(); i++) {
-                	JsonObject fact = factArray.get(i).asObject();
-                    result.add(new Fact(fact.get("id").asLong() + "", fact.get("joke").asString()));
+                JSONArray factArray = jsonObject.getJSONArray("value");
+                for (int i = 0; i < factArray.length(); i++) {
+                    JSONObject fact = factArray.getJSONObject(i);
+                    result.add(new Fact(fact.getLong("id") + "", fact.getString("joke")));
                 }
             } else {
-            	JsonObject fact = jsonObject.get("value").asObject();
-                result.add(new Fact(fact.get("id").asLong() + "", fact.get("joke").asString()));
+                JSONObject fact = jsonObject.getJSONObject("value");
+                result.add(new Fact(fact.getLong("id") + "", fact.getString("joke")));
             }
         }
 

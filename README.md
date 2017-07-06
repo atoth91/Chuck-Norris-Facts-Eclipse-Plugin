@@ -1,6 +1,8 @@
 # Chuck-Norris-Facts-Eclipse-Plugin
 Read Chuck Norris facts in your IDE. Greatly improves your productivity! 
 
+Facts are fetched from "The Internet Chuck Norris Database" (http://www.icndb.com), check it out!
+
 ## Compile
 
 This project uses maven with the tycho plugin to build an eclipse plugin, feature, update-site.
